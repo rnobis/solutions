@@ -152,9 +152,9 @@ int countNegative(int * array, int length)
 */
 int isIncreasing(int * array, int length)
 {
-  int i = 0;      //counter for while loop
-  int j = 1;      //counter for while loop
-  int incrCheck = 1;  //variable to check if array is still increasing
+  int i = 0;          //counter for while loop, initialized to 0 to compare array values
+  int j = 1;          //counter for while loop, initialized to 1 to compare array values
+  int incrCheck = 1;  //variable to check if array is still increasing, initialized to 1 to satisfy while loops first iteration
   
   if (length == 0 || length == 1)
     {
