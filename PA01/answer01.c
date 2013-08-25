@@ -87,7 +87,7 @@ int addElement(int * array, int length)
 int countNegative(int * array, int length)
 {
   int i;        //for loop counter
-  int negTotal; //total number of negative numbers in the array
+  int negTotal = 0; //total number of negative numbers in the array
   
   if (length == 0)
     {
@@ -100,7 +100,7 @@ int countNegative(int * array, int length)
 	  if (array[i] < 0)
 	    {
 	      negTotal++;
-	    }
+	    } 
 	}
     }
 
@@ -154,7 +154,7 @@ int isIncreasing(int * array, int length)
 {
   int i = 0;      //counter for while loop
   int j = 1;      //counter for while loop
-  int incrCheck;  //variable to check if array is still increasing
+  int incrCheck = 1;  //variable to check if array is still increasing
   
   if (length == 0 || length == 1)
     {
@@ -172,6 +172,8 @@ int isIncreasing(int * array, int length)
 	    {
 	      incrCheck = 0;
 	    }
+	  i++;
+	  j++;
 	}
     }
     

@@ -1,0 +1,82 @@
+==9358== Memcheck, a memory error detector
+==9358== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==9358== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==9358== Command: ./pa01 inputs/input2
+==9358== Parent PID: 9349
+==9358== 
+--9358-- 
+--9358-- Valgrind options:
+--9358--    --suppressions=/usr/lib/valgrind/debian-libc6-dbg.supp
+--9358--    --tool=memcheck
+--9358--    --leak-check=full
+--9358--    --verbose
+--9358--    --log-file=outputs/valgrind-log2
+--9358-- Contents of /proc/version:
+--9358--   Linux version 3.5.0-39-generic (buildd@roseapple) (gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) ) #60~precise1-Ubuntu SMP Wed Aug 14 15:38:41 UTC 2013
+--9358-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--9358-- Page sizes: currently 4096, max supported 4096
+--9358-- Valgrind library directory: /usr/lib/valgrind
+--9358-- Reading syms from /home/ryan/ECE264/solutions/PA01/pa01 (0x400000)
+--9358-- Reading syms from /lib/x86_64-linux-gnu/ld-2.15.so (0x4000000)
+--9358--   Considering /lib/x86_64-linux-gnu/ld-2.15.so ..
+--9358--   .. CRC mismatch (computed 269450ce wanted 94894502)
+--9358--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.15.so ..
+--9358--   .. CRC is valid
+--9358-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux (0x38000000)
+--9358--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--9358--   .. CRC mismatch (computed fd32bc40 wanted 1b1bde8c)
+--9358--    object doesn't have a symbol table
+--9358--    object doesn't have a dynamic symbol table
+--9358-- Reading suppressions file: /usr/lib/valgrind/debian-libc6-dbg.supp
+--9358-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==9358== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-9358-by-ryan-on-???
+==9358== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-9358-by-ryan-on-???
+==9358== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-9358-by-ryan-on-???
+==9358== 
+==9358== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==9358== don't want to do, unless you know exactly what you're doing,
+==9358== or are doing some strange experiment):
+==9358==   /usr/lib/valgrind/../../bin/vgdb --pid=9358 ...command...
+==9358== 
+==9358== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==9358==   /path/to/gdb ./pa01
+==9358== and then give GDB the following command
+==9358==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=9358
+==9358== --pid is optional if only one valgrind process is running
+==9358== 
+--9358-- REDIR: 0x40189e0 (strlen) redirected to 0x380625c7 (???)
+--9358-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so (0x4a25000)
+--9358--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--9358--   .. CRC mismatch (computed 8f05ac98 wanted c6d0ab1a)
+--9358--    object doesn't have a symbol table
+--9358-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so (0x4c27000)
+--9358--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--9358--   .. CRC mismatch (computed fc059af4 wanted ffc668e8)
+--9358--    object doesn't have a symbol table
+--9358-- REDIR: 0x4018850 (index) redirected to 0x4c2bc60 (index)
+--9358-- REDIR: 0x40188d0 (strcmp) redirected to 0x4c2cc20 (strcmp)
+--9358-- Reading syms from /lib/x86_64-linux-gnu/libc-2.15.so (0x4e32000)
+--9358--   Considering /lib/x86_64-linux-gnu/libc-2.15.so ..
+--9358--   .. CRC mismatch (computed d1cc6f49 wanted 7994f9f0)
+--9358--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.15.so ..
+--9358--   .. CRC is valid
+--9358-- REDIR: 0x4ebee40 (strcasecmp) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--9358-- REDIR: 0x4ebb1e0 (strnlen) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--9358-- REDIR: 0x4ec1110 (strncasecmp) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--9358-- REDIR: 0x4ebcbd0 (__GI_strrchr) redirected to 0x4c2ba80 (__GI_strrchr)
+--9358-- REDIR: 0x4eb4f50 (malloc) redirected to 0x4c2b660 (malloc)
+--9358-- REDIR: 0x4ec4d10 (strchrnul) redirected to 0x4c2e3b0 (strchrnul)
+--9358-- REDIR: 0x4eb5560 (free) redirected to 0x4c2a7c0 (free)
+--9358-- REDIR: 0x4ebb100 (__GI_strlen) redirected to 0x4c2bfc0 (__GI_strlen)
+==9358== 
+==9358== HEAP SUMMARY:
+==9358==     in use at exit: 0 bytes in 0 blocks
+==9358==   total heap usage: 2 allocs, 2 frees, 768 bytes allocated
+==9358== 
+==9358== All heap blocks were freed -- no leaks are possible
+==9358== 
+==9358== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+--9358-- 
+--9358-- used_suppression:      2 dl-hack3-cond-1
+==9358== 
+==9358== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
