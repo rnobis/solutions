@@ -9,7 +9,14 @@
  */
 int my_strlen(const char * s)
 {
-    return 0;
+  int counter = 0;  //counter for counting characters in a string
+
+  while (s[counter] != '\0')
+    {
+      counter++;
+    }
+
+    return counter;
 }
 
 /**
@@ -20,7 +27,19 @@ int my_strlen(const char * s)
  */
 int my_countchar(const char * s, char c)
 {
-    return 0;
+  int i = 0;         //counter initialized at 0 to cycle through array of characters
+  int ccounter = 0;  //counter for counting character specified
+
+  while (s[i] != '\0')
+    {
+      if (s[i] == c)
+	{
+	  ccounter++;
+	}
+      i++;
+    }
+
+    return ccounter;
 }
 
 /**
@@ -34,7 +53,14 @@ int my_countchar(const char * s, char c)
  */
 void my_strupper(char * s)
 {
+  int i = 0;
 
+  while (s[i] != '\0')
+    {
+      s[i] = toupper(s[i]);
+      i++;
+    }
+      
 }
 
 /**
@@ -48,6 +74,13 @@ void my_strupper(char * s)
  */
 void my_strlower(char * s)
 {
+  int i = 0;
+  
+  while (s[i] != '\0')
+    {
+      s[i] = tolower(s[i]);
+      i++;
+    }
 
 }
 
@@ -63,6 +96,15 @@ void my_strlower(char * s)
  */
 void my_strcpy(char * s1, const char * s2)
 {
+  int i = 0;
+
+  while (s2[i] != '\0')
+    {
+      s1[i] = s2[i];
+      i++;
+    }
+
+  s1[i] = '\0';
 
 }
 
@@ -78,7 +120,16 @@ void my_strcpy(char * s1, const char * s2)
  */
 void my_strncpy(char * s1, const char * s2, int num)
 {
-    
+  int i = 0;
+  
+  while (i < num)
+    {
+      s1[i] = s2[i];
+      i++;
+    }
+
+  s1[i] = '\0';
+  
 }
 
 
@@ -93,7 +144,22 @@ void my_strncpy(char * s1, const char * s2, int num)
  */
 void my_strcat(char * s1, const char * s2) 
 {
-    
+  int i = 0;
+  int j = 0;
+  
+  while (s1[i] != '\0')
+    {
+      i++;
+    }
+  
+  while (s2[j] != '\0')
+    {
+      s1[i] = s2[j];
+      i++;
+      j++;
+    }
+
+  s1[i] = '\0';
 }
 
 /** 
@@ -107,7 +173,22 @@ void my_strcat(char * s1, const char * s2)
  */
 void my_strncat(char * s1, const char * s2, int num)
 {
-   
+  int i = 0;
+  int j = 0;
+  
+  while (s1[i] != '\0')
+    {
+      i++;
+    }
+  
+  while (j < num)
+    {
+      s1[i] = s2[j];
+      i++;
+      j++;
+    }
+
+  s1[i] = '\0';
 }
 
 /**
