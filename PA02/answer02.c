@@ -203,6 +203,23 @@ void my_strncat(char * s1, const char * s2, int num)
 
 const char *my_strstr(const char * s1, const char * s2)
 {
+  int i = 0;
+  int j = 0;
+
+  while (s1[i] != '\0')
+    {
+      if (s1[i] == s2[i])
+	{
+	  j++;
+
+	  if (s2[j] == '\0')
+	    {
+	      return s2;
+	    }
+	}
+      i++;
+    }
+
     return NULL;
 }
 
@@ -236,7 +253,45 @@ const char *my_strstr(const char * s1, const char * s2)
  */
 void my_strinsert(char *s1, const char *s2, int pos)
 {
-  
+
+  int length1 = my_strlen(s1);
+  int length2 = my_strlen(s2);
+  int i = 0;
+  int j = 0;
+
+  if (pos == 0)
+    {
+      while(s1[i] != '\0')
+	{
+	  s1[i + length2] = s1[i];
+	  i++;
+	}
+      while(s2[j] != '\0')
+	{
+	  s1[j] = s2[j];
+	  j++;
+	}
+      s1[i + length2] = '\0';
+    }
+  else if (pos > length1)
+    {
+      my_strcat(s1,s2);
+    }
+  else
+    {
+      while (s1[pos + i] != '\0')
+	{
+	  s1[pos + i + length2] = s1[pos + i];
+	  i++;
+	}
+      while (s2[j] != '\0')
+	{
+	  s1[pos + j] = s2[j];
+	  j++;
+	}
+      s1[pos + i + length2] = '\0';
+    }
+
 }
 
 /**

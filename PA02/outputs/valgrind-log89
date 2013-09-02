@@ -1,0 +1,80 @@
+==25020== Memcheck, a memory error detector
+==25020== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==25020== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==25020== Command: ./pa02 inputs/input9
+==25020== Parent PID: 25011
+==25020== 
+--25020-- 
+--25020-- Valgrind options:
+--25020--    --suppressions=/usr/lib/valgrind/debian-libc6-dbg.supp
+--25020--    --tool=memcheck
+--25020--    --leak-check=full
+--25020--    --verbose
+--25020--    --log-file=outputs/valgrind-log89
+--25020-- Contents of /proc/version:
+--25020--   Linux version 3.5.0-39-generic (buildd@roseapple) (gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) ) #60~precise1-Ubuntu SMP Wed Aug 14 15:38:41 UTC 2013
+--25020-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--25020-- Page sizes: currently 4096, max supported 4096
+--25020-- Valgrind library directory: /usr/lib/valgrind
+--25020-- Reading syms from /home/ryan/ECE264/solutions/PA02/pa02 (0x400000)
+--25020-- Reading syms from /lib/x86_64-linux-gnu/ld-2.15.so (0x4000000)
+--25020--   Considering /lib/x86_64-linux-gnu/ld-2.15.so ..
+--25020--   .. CRC mismatch (computed 269450ce wanted 94894502)
+--25020--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.15.so ..
+--25020--   .. CRC is valid
+--25020-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux (0x38000000)
+--25020--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--25020--   .. CRC mismatch (computed fd32bc40 wanted 1b1bde8c)
+--25020--    object doesn't have a symbol table
+--25020--    object doesn't have a dynamic symbol table
+--25020-- Reading suppressions file: /usr/lib/valgrind/debian-libc6-dbg.supp
+--25020-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==25020== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-25020-by-ryan-on-???
+==25020== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-25020-by-ryan-on-???
+==25020== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-25020-by-ryan-on-???
+==25020== 
+==25020== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==25020== don't want to do, unless you know exactly what you're doing,
+==25020== or are doing some strange experiment):
+==25020==   /usr/lib/valgrind/../../bin/vgdb --pid=25020 ...command...
+==25020== 
+==25020== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==25020==   /path/to/gdb ./pa02
+==25020== and then give GDB the following command
+==25020==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=25020
+==25020== --pid is optional if only one valgrind process is running
+==25020== 
+--25020-- REDIR: 0x40189e0 (strlen) redirected to 0x380625c7 (???)
+--25020-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so (0x4a25000)
+--25020--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--25020--   .. CRC mismatch (computed 8f05ac98 wanted c6d0ab1a)
+--25020--    object doesn't have a symbol table
+--25020-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so (0x4c27000)
+--25020--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--25020--   .. CRC mismatch (computed fc059af4 wanted ffc668e8)
+--25020--    object doesn't have a symbol table
+--25020-- REDIR: 0x4018850 (index) redirected to 0x4c2bc60 (index)
+--25020-- REDIR: 0x40188d0 (strcmp) redirected to 0x4c2cc20 (strcmp)
+--25020-- Reading syms from /lib/x86_64-linux-gnu/libc-2.15.so (0x4e32000)
+--25020--   Considering /lib/x86_64-linux-gnu/libc-2.15.so ..
+--25020--   .. CRC mismatch (computed d1cc6f49 wanted 7994f9f0)
+--25020--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.15.so ..
+--25020--   .. CRC is valid
+--25020-- REDIR: 0x4ebee40 (strcasecmp) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--25020-- REDIR: 0x4ebb1e0 (strnlen) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--25020-- REDIR: 0x4ec1110 (strncasecmp) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--25020-- REDIR: 0x4ebcbd0 (__GI_strrchr) redirected to 0x4c2ba80 (__GI_strrchr)
+--25020-- REDIR: 0x4ec4d10 (strchrnul) redirected to 0x4c2e3b0 (strchrnul)
+--25020-- REDIR: 0x4eb5560 (free) redirected to 0x4c2a7c0 (free)
+==25020== 
+==25020== HEAP SUMMARY:
+==25020==     in use at exit: 0 bytes in 0 blocks
+==25020==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==25020== 
+==25020== All heap blocks were freed -- no leaks are possible
+==25020== 
+==25020== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+--25020-- 
+--25020-- used_suppression:      2 dl-hack3-cond-1
+==25020== 
+==25020== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)

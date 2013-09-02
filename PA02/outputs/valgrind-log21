@@ -1,80 +1,80 @@
-==7824== Memcheck, a memory error detector
-==7824== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
-==7824== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
-==7824== Command: ./pa02 inputs/input1
-==7824== Parent PID: 7815
-==7824== 
---7824-- 
---7824-- Valgrind options:
---7824--    --suppressions=/usr/lib/valgrind/debian-libc6-dbg.supp
---7824--    --tool=memcheck
---7824--    --leak-check=full
---7824--    --verbose
---7824--    --log-file=outputs/valgrind-log21
---7824-- Contents of /proc/version:
---7824--   Linux version 3.5.0-39-generic (buildd@roseapple) (gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) ) #60~precise1-Ubuntu SMP Wed Aug 14 15:38:41 UTC 2013
---7824-- Arch and hwcaps: AMD64, amd64-sse3-cx16
---7824-- Page sizes: currently 4096, max supported 4096
---7824-- Valgrind library directory: /usr/lib/valgrind
---7824-- Reading syms from /home/ryan/ECE264/solutions/PA02/pa02 (0x400000)
---7824-- Reading syms from /lib/x86_64-linux-gnu/ld-2.15.so (0x4000000)
---7824--   Considering /lib/x86_64-linux-gnu/ld-2.15.so ..
---7824--   .. CRC mismatch (computed 269450ce wanted 94894502)
---7824--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.15.so ..
---7824--   .. CRC is valid
---7824-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux (0x38000000)
---7824--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
---7824--   .. CRC mismatch (computed fd32bc40 wanted 1b1bde8c)
---7824--    object doesn't have a symbol table
---7824--    object doesn't have a dynamic symbol table
---7824-- Reading suppressions file: /usr/lib/valgrind/debian-libc6-dbg.supp
---7824-- Reading suppressions file: /usr/lib/valgrind/default.supp
-==7824== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-7824-by-ryan-on-???
-==7824== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-7824-by-ryan-on-???
-==7824== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-7824-by-ryan-on-???
-==7824== 
-==7824== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==7824== don't want to do, unless you know exactly what you're doing,
-==7824== or are doing some strange experiment):
-==7824==   /usr/lib/valgrind/../../bin/vgdb --pid=7824 ...command...
-==7824== 
-==7824== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==7824==   /path/to/gdb ./pa02
-==7824== and then give GDB the following command
-==7824==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=7824
-==7824== --pid is optional if only one valgrind process is running
-==7824== 
---7824-- REDIR: 0x40189e0 (strlen) redirected to 0x380625c7 (???)
---7824-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so (0x4a25000)
---7824--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
---7824--   .. CRC mismatch (computed 8f05ac98 wanted c6d0ab1a)
---7824--    object doesn't have a symbol table
---7824-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so (0x4c27000)
---7824--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
---7824--   .. CRC mismatch (computed fc059af4 wanted ffc668e8)
---7824--    object doesn't have a symbol table
---7824-- REDIR: 0x4018850 (index) redirected to 0x4c2bc60 (index)
---7824-- REDIR: 0x40188d0 (strcmp) redirected to 0x4c2cc20 (strcmp)
---7824-- Reading syms from /lib/x86_64-linux-gnu/libc-2.15.so (0x4e32000)
---7824--   Considering /lib/x86_64-linux-gnu/libc-2.15.so ..
---7824--   .. CRC mismatch (computed d1cc6f49 wanted 7994f9f0)
---7824--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.15.so ..
---7824--   .. CRC is valid
---7824-- REDIR: 0x4ebee40 (strcasecmp) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
---7824-- REDIR: 0x4ebb1e0 (strnlen) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
---7824-- REDIR: 0x4ec1110 (strncasecmp) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
---7824-- REDIR: 0x4ebcbd0 (__GI_strrchr) redirected to 0x4c2ba80 (__GI_strrchr)
---7824-- REDIR: 0x4ec4d10 (strchrnul) redirected to 0x4c2e3b0 (strchrnul)
---7824-- REDIR: 0x4eb5560 (free) redirected to 0x4c2a7c0 (free)
-==7824== 
-==7824== HEAP SUMMARY:
-==7824==     in use at exit: 0 bytes in 0 blocks
-==7824==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
-==7824== 
-==7824== All heap blocks were freed -- no leaks are possible
-==7824== 
-==7824== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
---7824-- 
---7824-- used_suppression:      2 dl-hack3-cond-1
-==7824== 
-==7824== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==23252== Memcheck, a memory error detector
+==23252== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==23252== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==23252== Command: ./pa02 inputs/input1
+==23252== Parent PID: 23243
+==23252== 
+--23252-- 
+--23252-- Valgrind options:
+--23252--    --suppressions=/usr/lib/valgrind/debian-libc6-dbg.supp
+--23252--    --tool=memcheck
+--23252--    --leak-check=full
+--23252--    --verbose
+--23252--    --log-file=outputs/valgrind-log21
+--23252-- Contents of /proc/version:
+--23252--   Linux version 3.5.0-39-generic (buildd@roseapple) (gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) ) #60~precise1-Ubuntu SMP Wed Aug 14 15:38:41 UTC 2013
+--23252-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--23252-- Page sizes: currently 4096, max supported 4096
+--23252-- Valgrind library directory: /usr/lib/valgrind
+--23252-- Reading syms from /home/ryan/ECE264/solutions/PA02/pa02 (0x400000)
+--23252-- Reading syms from /lib/x86_64-linux-gnu/ld-2.15.so (0x4000000)
+--23252--   Considering /lib/x86_64-linux-gnu/ld-2.15.so ..
+--23252--   .. CRC mismatch (computed 269450ce wanted 94894502)
+--23252--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.15.so ..
+--23252--   .. CRC is valid
+--23252-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux (0x38000000)
+--23252--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--23252--   .. CRC mismatch (computed fd32bc40 wanted 1b1bde8c)
+--23252--    object doesn't have a symbol table
+--23252--    object doesn't have a dynamic symbol table
+--23252-- Reading suppressions file: /usr/lib/valgrind/debian-libc6-dbg.supp
+--23252-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==23252== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-23252-by-ryan-on-???
+==23252== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-23252-by-ryan-on-???
+==23252== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-23252-by-ryan-on-???
+==23252== 
+==23252== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==23252== don't want to do, unless you know exactly what you're doing,
+==23252== or are doing some strange experiment):
+==23252==   /usr/lib/valgrind/../../bin/vgdb --pid=23252 ...command...
+==23252== 
+==23252== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==23252==   /path/to/gdb ./pa02
+==23252== and then give GDB the following command
+==23252==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=23252
+==23252== --pid is optional if only one valgrind process is running
+==23252== 
+--23252-- REDIR: 0x40189e0 (strlen) redirected to 0x380625c7 (???)
+--23252-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so (0x4a25000)
+--23252--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--23252--   .. CRC mismatch (computed 8f05ac98 wanted c6d0ab1a)
+--23252--    object doesn't have a symbol table
+--23252-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so (0x4c27000)
+--23252--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--23252--   .. CRC mismatch (computed fc059af4 wanted ffc668e8)
+--23252--    object doesn't have a symbol table
+--23252-- REDIR: 0x4018850 (index) redirected to 0x4c2bc60 (index)
+--23252-- REDIR: 0x40188d0 (strcmp) redirected to 0x4c2cc20 (strcmp)
+--23252-- Reading syms from /lib/x86_64-linux-gnu/libc-2.15.so (0x4e32000)
+--23252--   Considering /lib/x86_64-linux-gnu/libc-2.15.so ..
+--23252--   .. CRC mismatch (computed d1cc6f49 wanted 7994f9f0)
+--23252--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.15.so ..
+--23252--   .. CRC is valid
+--23252-- REDIR: 0x4ebee40 (strcasecmp) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--23252-- REDIR: 0x4ebb1e0 (strnlen) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--23252-- REDIR: 0x4ec1110 (strncasecmp) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--23252-- REDIR: 0x4ebcbd0 (__GI_strrchr) redirected to 0x4c2ba80 (__GI_strrchr)
+--23252-- REDIR: 0x4ec4d10 (strchrnul) redirected to 0x4c2e3b0 (strchrnul)
+--23252-- REDIR: 0x4eb5560 (free) redirected to 0x4c2a7c0 (free)
+==23252== 
+==23252== HEAP SUMMARY:
+==23252==     in use at exit: 0 bytes in 0 blocks
+==23252==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==23252== 
+==23252== All heap blocks were freed -- no leaks are possible
+==23252== 
+==23252== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+--23252-- 
+--23252-- used_suppression:      2 dl-hack3-cond-1
+==23252== 
+==23252== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
