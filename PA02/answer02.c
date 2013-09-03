@@ -261,12 +261,13 @@ void my_strinsert(char *s1, const char *s2, int pos)
 
   if (pos == 0)
     {
-      while(s1[i] != '\0')
+      while(i <= length1)
 	{
 	  s1[i + length2] = s1[i];
 	  i++;
 	}
-      while(s2[j] != '\0')
+
+      while(j <= length2)
 	{
 	  s1[j] = s2[j];
 	  j++;
@@ -279,12 +280,13 @@ void my_strinsert(char *s1, const char *s2, int pos)
     }
   else
     {
-      while (s1[pos + i] != '\0')
+      while (pos + i <= length1)
 	{
 	  s1[pos + i + length2] = s1[pos + i];
 	  i++;
 	}
-      while (s2[j] != '\0')
+
+      while (j <= length2)
 	{
 	  s1[pos + j] = s2[j];
 	  j++;
