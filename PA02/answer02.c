@@ -259,40 +259,28 @@ void my_strinsert(char *s1, const char *s2, int pos)
   int i = 0;
   int j = 0;
 
-  if (pos == 0)
-    {
-      while(i <= length1)
-	{
-	  s1[i + length2] = s1[i];
-	  i++;
-	}
+  my_strcat(s1,s2);
 
-      while(j <= length2)
-	{
-	  s1[j] = s2[j];
-	  j++;
-	}
-      s1[i + length2] = '\0';
-    }
-  else if (pos > length1)
+  /*if (pos > length1)
     {
       my_strcat(s1,s2);
     }
   else
     {
-      while (pos + i <= length1)
-	{
+      s1[length1 + 1] = ' ';
+      while (pos + i < length1)
+     	{
 	  s1[pos + i + length2] = s1[pos + i];
 	  i++;
 	}
-
-      while (j <= length2)
-	{
-	  s1[pos + j] = s2[j];
-	  j++;
-	}
-      s1[pos + i + length2] = '\0';
-    }
+  
+      while (j < 100)
+    	{
+   	  s1[pos + j] = s2[j];
+    	  j++;
+    	}
+      s1[length1 + length2] = '\0';
+      }*/
 
 }
 
@@ -328,6 +316,34 @@ void my_strinsert(char *s1, const char *s2, int pos)
  */
 void my_strdelete(char *s, int pos, int length)
 {
-  
+  int slength = my_strlen(s);
+  int i = 0;
+
+  if (pos == 0 && length <= slength)
+    {
+      while(i < length)
+	{
+	  s[i] = s[pos + i];
+	  i++;
+	}
+      s[pos + i] = '\0';
+    }
+  else if (pos == 0 && length > slength)
+    {
+      s[0] = '\0';
+    }
+  else if (pos + length >= slength)
+    {
+      s[pos] = '\0';
+    }
+  else 
+    {
+      while (i < length)
+	{
+	  s[pos + i] = s[pos + i + length];
+	  i++;
+	}
+      s[pos + i + length] = '\0';
+    }
 }
 
