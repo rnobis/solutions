@@ -53,7 +53,7 @@ int my_countchar(const char * s, char c)
  */
 void my_strupper(char * s)
 {
-  int i = 0;
+  int i = 0; // counter initialized to zero to cycle through the string
 
   while (s[i] != '\0')
     {
@@ -74,7 +74,7 @@ void my_strupper(char * s)
  */
 void my_strlower(char * s)
 {
-  int i = 0;
+  int i = 0;  //counter initialized to zero to cycle through the string
   
   while (s[i] != '\0')
     {
@@ -96,7 +96,7 @@ void my_strlower(char * s)
  */
 void my_strcpy(char * s1, const char * s2)
 {
-  int i = 0;
+  int i = 0; //counter initialized to zero to cycle through entire string
 
   while (s2[i] != '\0')
     {
@@ -120,7 +120,7 @@ void my_strcpy(char * s1, const char * s2)
  */
 void my_strncpy(char * s1, const char * s2, int num)
 {
-  int i = 0;
+  int i = 0; //counter initialized to zero to cycle through the string
   
   while (i < num)
     {
@@ -144,7 +144,7 @@ void my_strncpy(char * s1, const char * s2, int num)
  */
 void my_strcat(char * s1, const char * s2) 
 {
-  int i = 0;
+  int i = 0; //counters initialized to zero to cycle through strings
   int j = 0;
   
   while (s1[i] != '\0')
@@ -173,7 +173,7 @@ void my_strcat(char * s1, const char * s2)
  */
 void my_strncat(char * s1, const char * s2, int num)
 {
-  int i = 0;
+  int i = 0;  //counters initialized to zero to cycle through string
   int j = 0;
   
   while (s1[i] != '\0')
@@ -203,7 +203,7 @@ void my_strncat(char * s1, const char * s2, int num)
 
 const char *my_strstr(const char * s1, const char * s2)
 {
-  int i = 0;
+  int i = 0; //counters initialized to zero to cycle through the string
   int j = 0;
 
   while (s1[i] != '\0')
@@ -254,14 +254,14 @@ const char *my_strstr(const char * s1, const char * s2)
 void my_strinsert(char *s1, const char *s2, int pos)
 {
 
-  int length1 = my_strlen(s1);
+  /*int length1 = my_strlen(s1);
   int length2 = my_strlen(s2);
   int i = 0;
   int j = 0;
 
   my_strcat(s1,s2);
 
-  /*if (pos > length1)
+  if (pos > length1)
     {
       my_strcat(s1,s2);
     }
@@ -316,7 +316,7 @@ void my_strinsert(char *s1, const char *s2, int pos)
  */
 void my_strdelete(char *s, int pos, int length)
 {
-  int slength = my_strlen(s);
+  /* int slength = my_strlen(s);
   int i = 0;
 
   if (pos == 0 && length <= slength)
@@ -344,6 +344,6 @@ void my_strdelete(char *s, int pos, int length)
 	  i++;
 	}
       s[pos + i + length] = '\0';
-    }
+    } */
 }
 
