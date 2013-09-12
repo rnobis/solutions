@@ -62,6 +62,24 @@
 
 int * readIntegers(const char * filename, int * numberOfIntegers)
 {
+  FILE * fptr;
+  int * arr;
+  int counter;
+  int val;
+  int i = 0;
+  
+  fptr = fopen(filename, "r");
+  
+  while (fscanf(fptr, "%d", & val ) == 1)
+    {
+      counter++;
+    }
+  arr = malloc(counter * sizeof(int));
+  
+  while(i < counter)
+    {
+      arr[i] 
+
     return NULL;
 }
 
