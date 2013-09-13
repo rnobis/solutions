@@ -62,25 +62,37 @@
 
 int * readIntegers(const char * filename, int * numberOfIntegers)
 {
-  FILE * fptr;
-  int * arr;
-  int counter;
-  int val;
-  int i = 0;
+  FILE * fptr;      //creates file pointer variable
+  int * arr;        //creates array
+  int counter = 0;  //counter for counting elements in the array
+  int val;          //temp variable for storing values of array elements
+  int i = 0;        //counter for cycling through array elements
   
   fptr = fopen(filename, "r");
   
-  while (fscanf(fptr, "%d", & val ) == 1)
+  if (fptr == NULL)
+    {
+      return NULL;
+    }
+  
+  while(fscanf(fptr, "%d", &val) == 1)
     {
       counter++;
     }
+  
+  * numberOfIntegers = counter;
   arr = malloc(counter * sizeof(int));
   
-  while(i < counter)
+  fseek(fptr, 0, SEEK_SET);
+  
+  while(fscanf(fptr, "%d", & val) == 1)
     {
-      arr[i] 
-
-    return NULL;
+      arr[i] = val;
+      i++;
+    }
+  
+  fclose(fptr);
+  return arr;
 }
 
 /**
@@ -122,9 +134,62 @@ int * readIntegers(const char * filename, int * numberOfIntegers)
  */
 void sort(int * arr, int length)
 {
-    
+  //adds "first" variable to function to allow simpler recursion using divide and conquer
+  void quicksort(int * arr, int first, int last);
+  
+  quicksort(arr, 0, length - 1);
 }
+/**
+ *This function performs the quicksort algorithm. The pivot is set to
+ *be the first value. The counters are then set to be the beginning,
+ *and end of array.
+ *The values begin counting up and down, until their conditions are met
+ *(i.e. a value smaller and larger than the pivot are found before
+ * the counters meet) and these values are swapped.
+ *
+ *Once i and j meet, the value at the pivot is swapped with the value at j.
+ *
+ *Then, the quicksort function is ran again, using the values higher and
+ *smaller than the array, as two smaller arrays.
+ *This runs recursively, until the entire array is sorted.
+ **/
+void quicksort(int * arr, int first, int last)
+{
+  int i;       //variable to store counter for shifting from the left
+  int j;       //variable to store counter for shifting from the right
+  int pivot;   //variable for the pivot to quicksort around
+  int temp;    //temporary variable to swap array values
 
+  if (first < last)
+    {
+      pivot = first;
+      i = first;
+      j = last;
+
+      while(i < j)
+	{
+	  while(arr[i] <= arr[pivot] && i < last)
+	    {
+	      i++;
+	    }
+	  while(arr[j] > arr[pivot])
+	    {
+	      j--;
+	    }
+	  if(i < j)
+	    {
+	      temp = arr[i];
+	      arr[i] = arr[j];
+	      arr[j] = temp; 
+	    }
+	}
+      temp = arr[pivot];
+      arr[pivot] = arr[j];
+      arr[j] = temp;
+      quicksort(arr, first, j - 1);
+      quicksort(arr, j + 1, last);
+   }
+}
 /**
  * Use binary search to find 'key' in a sorted array of integers
  *
@@ -171,7 +236,49 @@ void sort(int * arr, int length)
  */
 int search(int * arr, int length, int key)
 {
-    return -1;
+  //fucntion to help perform binary search recursively
+  int searchhelper(int * arr, int low, int high, int key);
+  
+  return searchhelper(arr, 0, length - 1, key);
+}
+/**
+ *This function takes the value of the where in the arry to start searching,
+ *where in the array to stop searching, the array itself, and the key.
+ *
+ *Using these values, the binary search is performed, and a -1 is returned
+ *if there is an error (i.e. low > high)
+ *If the key turns out to be the middle of the array, then that value is 
+ *returned directly.
+ *
+ *Otherwise, if the value of the key is greater than the location, then
+ *the array is recentered with that as the starting point, and the 
+ *end of the array as the end.
+ *
+ *If the key is less than the value, the beginning of the array remains
+ *unchanged, and that point is now the end of the searching area.
+ *
+ *Using recursion the searching area continues to shring until the value
+ *is found.
+ **/ 
+int searchhelper(int * arr, int low, int high, int key)
+{
+  if(low > high)
+    {
+      return -1;
+    }
+
+  int ind = (low + high) / 2;
+
+  if (arr[ind] == key)
+    {
+      return ind;
+    }
+  if (arr[ind] > key)
+    {
+      return searchhelper(arr, low, ind - 1, key);
+    }
+
+  return searchhelper(arr, ind + 1, high, key);
 }
 
 
