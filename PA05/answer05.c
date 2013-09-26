@@ -63,6 +63,37 @@
 
 int * readInteger(char * filename, int * numInteger)
 {
+  FILE * fptr;      //creates file pointer variable
+  int * arr;        //creates array
+  int counter = 0;  //counter for counting elements in the array
+  int val;          //temp variable for storing values of array elements
+  int i = 0;        //counter for cycling through array elements
+  
+  fptr = fopen(filename, "r");
+  
+  if (fptr == NULL)
+    {
+      return NULL;
+    }
+  
+  while(fscanf(fptr, "%d", &val) == 1)
+    {
+      counter++;
+    }
+  
+  * numInteger = counter;
+  arr = malloc(counter * sizeof(int));
+  
+  fseek(fptr, 0, SEEK_SET);
+  
+  while(fscanf(fptr, "%d", & val) == 1)
+    {
+      arr[i] = val;
+      i++;
+    }
+  
+  fclose(fptr);
+  return arr;
 }
 
 /* ----------------------------------------------- */
@@ -133,6 +164,37 @@ int * readInteger(char * filename, int * numInteger)
 
 char * * readString(char * filename, int * numString)
 {
+  FILE * fptr;
+  char buffer[MAXIMUM_LENGTH];  //temp array to store strings from fgets
+  int counter = 0;              //counts number of strings
+  char ** strArr;               //array for strings to be stored
+  int i = 0;
+  
+  fptr = fopen(filename, "r");
+  
+  if (fptr == NULL)
+    {
+      return NULL;
+    }
+  while (fgets(buffer, MAXIMUM_LENGTH, fptr) != NULL)
+    {
+      counter++;
+    }
+
+  * numString = counter;
+  strArr = malloc(counter * sizeof(char *));
+  
+  fseek(fptr, 0, SEEK_SET);
+  
+  while(fgets(buffer, MAXIMUM_LENGTH, fptr) != NULL)
+    {
+      strArr[i] = malloc(sizeof(char) * (1+strlen(buffer)));
+      strcpy(strArr[i],buffer);
+      i++;
+    }
+  
+  fclose(fptr);
+  return strArr;
 }
 
 /* ----------------------------------------------- */
@@ -141,6 +203,12 @@ char * * readString(char * filename, int * numString)
  */
 void printInteger(int * arrInteger, int numInteger)
 {
+  int i;
+
+  for(i = 0;i < numInteger;i++)
+    {
+      printf("%d\n", arrInteger[i]);
+    }
 }
 
 /* ----------------------------------------------- */
@@ -151,6 +219,12 @@ void printInteger(int * arrInteger, int numInteger)
  */
 void printString(char * * arrString, int numString)
 {
+  int i;
+  
+  for(i = 0;i < numString;i++)
+    {
+      printf("%s", arrString[i]);
+    }
 }
 
 /* ----------------------------------------------- */
@@ -159,6 +233,7 @@ void printString(char * * arrString, int numString)
  */
 void freeInteger(int * arrInteger, int numInteger)
 {
+  free(arrInteger);
 }
 
 /* ----------------------------------------------- */
@@ -169,6 +244,13 @@ void freeInteger(int * arrInteger, int numInteger)
  */
 void freeString(char * * arrString, int numString)
 {
+  int i;
+
+  for(i = 0;i < numString;i++)
+    {
+      free(arrString[i]);
+    }
+  free(arrString);
 }
 
 /* ----------------------------------------------- */
@@ -191,6 +273,22 @@ void freeString(char * * arrString, int numString)
 
 int saveInteger(char * filename, int * arrInteger, int numInteger)
 {
+  FILE * fout;
+  fout = fopen(filename, "w");
+  int i;
+  
+  if(fout == NULL)
+    {
+      return 0;
+    }
+
+  for(i = 0;i < numInteger;i++)
+    {
+      fprintf(fout, "%d\n", arrInteger[i]);
+    }
+
+  fclose(fout);
+  return 1;  
 }
 
 /* ----------------------------------------------- */
@@ -213,6 +311,22 @@ int saveInteger(char * filename, int * arrInteger, int numInteger)
 
 int saveString(char * filename, char * * arrString, int numString)
 {
+  FILE * fout;
+  fout = fopen(filename, "w");
+  int i;
+
+  if (fout == NULL)
+    {
+      return 0;
+    }
+  
+  for(i = 0;i < numString;i++)
+    {
+      fprintf(fout, "%s", arrString[i]);
+    }
+
+  fclose(fout);
+  return 1;
 }
 
 /* ----------------------------------------------- */
@@ -225,8 +339,27 @@ int saveString(char * filename, char * * arrString, int numString)
 
 void sortInteger(int * arrInteger, int numInteger)
 {
-}
+  int cmpInt(const void *p1, const void *p2);
 
+  qsort(arrInteger, numInteger, sizeof(int), cmpInt);
+}
+int cmpInt(const void *p1, const void *p2)
+{
+  int * intp1 = (int *) p1;
+  int * intp2 = (int *) p2;       
+  int intv1 = * intp1;         //get the value at the address
+  int intv2 = * intp2;         //get the value at the address
+  
+  if (intv1 < intv2)
+    {
+      return -1;
+    }
+  if (intv1 == intv2)
+    {
+      return 0;
+    }
+  return 1;
+}
 
 /* ----------------------------------------------- */
 /*
@@ -241,6 +374,19 @@ void sortInteger(int * arrInteger, int numInteger)
 
 void sortString(char * * arrString, int numString)
 {
+  int cmpStr(const void *p1, const void *p2);
+  
+  qsort(arrString, numString, sizeof(char *), cmpStr);
 }
-
+int cmpStr(const void *p1, const void *p2)
+{
+  char * * strp1 = (char * *) p1;
+  char * * strp2 = (char * *) p2;
+  char * str1;
+  char * str2;
+  str1 = * strp1;
+  str2 = * strp2;
+  
+  return strcmp(str1,str2);
+}
 
