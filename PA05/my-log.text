@@ -1,0 +1,150 @@
+commit 978bf2b3d37b457f7b342e9e67d6570d91cb5e42
+Author: Ryan <ryan@ubuntu.(none)>
+Date:   Thu Sep 26 18:46:26 2013 -0400
+
+    Completed answer05.c, passed all tests
+
+commit dc1b84553cf0dd5645938ee1cd673a1468724473
+Author: Ryan <ryan@ubuntu.(none)>
+Date:   Thu Sep 26 16:22:35 2013 -0400
+
+    Added PA06 to solutions
+
+commit cdd019e1cb1a74e7ba8733fb5f4c0c66ca557ff5
+Author: Ryan <ryan@ubuntu.(none)>
+Date:   Tue Sep 24 16:03:36 2013 -0400
+
+    Added PA05 directory
+
+commit ab35a43486775b2e202bde3cacbe8e261c3e8900
+Author: Ryan <ryan@ubuntu.(none)>
+Date:   Thu Sep 19 18:46:08 2013 -0400
+
+    Updated answer04 function, and passed make testall
+
+commit 187e4f72dbc675008451f636037bea16833756e2
+Author: Ryan <ryan@ubuntu.(none)>
+Date:   Wed Sep 18 19:20:45 2013 -0400
+
+    Updated makefile
+
+commit eb5e58ba0152ade1eeba865c4576275ed818cd08
+Author: Ryan <ryan@ubuntu.(none)>
+Date:   Tue Sep 17 22:14:34 2013 -0400
+
+    Added PA04
+
+commit cc614ff5522726e7aef293f158bef7f61c37ae00
+Author: Ryan <ryan@ubuntu.(none)>
+Date:   Thu Sep 12 21:06:54 2013 -0400
+
+    Finished answer03.c
+
+commit e8bff310e2756c9094fa0e81ee35aab8e5c2206f
+Author: Ryan <ryan@ubuntu.(none)>
+Date:   Thu Sep 12 01:41:56 2013 -0400
+
+    Updated first function of PA03
+
+commit c81ca50e3aead127f0fadece15eef02efffa73ca
+Author: rnobis <rnobis@purdue.edu>
+Date:   Sun Sep 8 22:13:21 2013 -0400
+
+    Added folder for PA03
+
+commit 6270c8bb7d7508d99e638c275c43933702fc6be1
+Author: rnobis <rnobis@purdue.edu>
+Date:   Fri Sep 6 21:15:54 2013 -0400
+
+    Added comments
+
+commit 08ae722c40a30208221a388fbe7c29fc7930b055
+Author: rnobis <rnobis@purdue.edu>
+Date:   Wed Sep 4 00:07:25 2013 -0400
+
+    Worked on last 2 functions, still no success
+
+commit fdcd8a5b4be0e37a8040ac2cfd18a5a8e43a6e74
+Author: rnobis <rnobis@purdue.edu>
+Date:   Tue Sep 3 17:09:56 2013 -0400
+
+    Updated my_strinsert function, still not working
+
+commit edf1c3cbb8d39733fabb01d3df90a8f37b426055
+Author: rnobis <rnobis@purdue.edu>
+Date:   Mon Sep 2 15:52:29 2013 -0400
+
+    Updated answer02.c, still need last 2 functions
+
+commit 7a2b96f4add6601d5d7c20e82cacf084eb1633c8
+Author: rnobis <rnobis@purdue.edu>
+Date:   Mon Sep 2 14:37:34 2013 -0400
+
+    Updated answer02.c
+
+commit 65a061f6f053878e22508651323cef3662ae127a
+Author: rnobis <rnobis@purdue.edu>
+Date:   Wed Aug 28 22:10:33 2013 -0400
+
+    Added PA02
+
+commit 3f38375defbd65675a769a4eee88a5495ca9194a
+Author: rnobis <rnobis@purdue.edu>
+Date:   Sun Aug 25 19:37:34 2013 -0400
+
+    Updated comments in answer01.c
+
+commit 61076ca0dc769aec9d749d9fd18f77707a794220
+Author: rnobis <rnobis@purdue.edu>
+Date:   Sun Aug 25 19:33:46 2013 -0400
+
+    Updated answer01.c and completed a make testall. All tests passed
+
+commit 262cf303112b3d24de97be00f16793325005899d
+Author: rnobis <rnobis@purdue.edu>
+Date:   Sun Aug 25 18:46:05 2013 -0400
+
+    Updated answer01.c
+
+commit cfb0de5723b78bdd4f9c4d6a2a7107e8b17df759
+Author: rnobis <rnobis@purdue.edu>
+Date:   Sun Aug 25 17:20:26 2013 -0400
+
+    Updated PA01
+
+commit 15b6b7a7c5d2eed2907674f2cfba567153d870e3
+Merge: 2aeb4dd fce6849
+Author: rnobis <rnobis@purdue.edu>
+Date:   Wed Aug 21 22:13:27 2013 -0400
+
+    Merge branch 'master' of https://github.com/rnobis/solutions
+
+commit 2aeb4dd5b184fc42dbcc84d69c561432c14f4a34
+Author: rnobis <rnobis@purdue.edu>
+Date:   Wed Aug 21 22:12:57 2013 -0400
+
+    added problem1
+
+commit fce684986a89790bd4b5a526a92e30d28082c26b
+Author: rnobis <rnobis@purdue.edu>
+Date:   Wed Aug 21 22:11:20 2013 -0400
+
+    Delete README
+
+commit 98cb1952481b8321422fac99d47f07163fc86720
+Author: rnobis <rnobis@purdue.edu>
+Date:   Wed Aug 21 22:10:32 2013 -0400
+
+    changes
+
+commit 840cf3a13d734c6252a5cc7edd1a2c9fabb3143c
+Author: rnobis <rnobis@purdue.edu>
+Date:   Wed Aug 21 21:59:48 2013 -0400
+
+    first commit
+
+commit 6ae07823e3af501ce14f4d41e62d846a1a0a2a61
+Author: rnobis <rnobis@purdue.edu>
+Date:   Wed Aug 21 21:49:39 2013 -0400
+
+    first commit
