@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "pa05.h"
-#define MAXIMUM_LENGTH 80
+#define MAXIMUM_LENGTH 180
 
 /*
  * Read a file of integers.
@@ -220,10 +220,16 @@ void printInteger(int * arrInteger, int numInteger)
 void printString(char * * arrString, int numString)
 {
   int i;
+  int len;
   
   for(i = 0;i < numString;i++)
     {
+      len = strlen(arrString[i]);
       printf("%s", arrString[i]);
+      if (len == 0 || arrString[i][len-1] != '\n')
+	{
+	  printf("\n");
+	}
     }
 }
 
@@ -314,6 +320,7 @@ int saveString(char * filename, char * * arrString, int numString)
   FILE * fout;
   fout = fopen(filename, "w");
   int i;
+  int len;
 
   if (fout == NULL)
     {
@@ -322,7 +329,12 @@ int saveString(char * filename, char * * arrString, int numString)
   
   for(i = 0;i < numString;i++)
     {
+      len = strlen(arrString[i]);
       fprintf(fout, "%s", arrString[i]);
+      if(len == 0 || arrString[i][len-1] != '\n')
+	{
+	  fprintf(fout,"\n");
+	}
     }
 
   fclose(fout);

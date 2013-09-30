@@ -6,7 +6,7 @@
  */
 #ifndef _PA05_H_
 #define _PA05_H_
-#define MAXIMUM_LENGTH 80
+#define MAXIMUM_LENGTH 180
 int * readInteger(char * filename, int * numInteger);
 void sortInteger(int * arrInteger, int numInteger);
 void printInteger(int * arrInteger, int numInteger);
