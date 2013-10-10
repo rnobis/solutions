@@ -167,7 +167,7 @@ struct Image * loadImage(const char* filename)
   struct Image * img = NULL;     //structure pointer for image data itself
   FILE * fptr;
   int retval;                    //temporary value to check returns from fread
-  uint8_t temp;                  //temporary variable to store value checked on last fread, to make sure no data is left
+  uint8_t * temp;                //temporary variable to store value checked on last fread, to make sure no data is left
 
   fptr = fopen(filename, "r");
   
@@ -180,7 +180,7 @@ struct Image * loadImage(const char* filename)
   
   if(hdr == NULL)
     {
-      fclose(filename);
+      fclose(fptr);
       return NULL;
     }
 
@@ -188,14 +188,14 @@ struct Image * loadImage(const char* filename)
   
   if(retval != 1)
     {
-      fclose(filename);
+      fclose(fptr);
       free(hdr);
       return NULL;
     }
 
-  if(hdr->magic_bit != ECE264_IMAGE_MAGIC_BITS || hdr->width <= 0 || hdr->height <= 0 || hdr->comment_len < 0)
+  if(hdr->magic_bits != ECE264_IMAGE_MAGIC_BITS || hdr->width <= 0 || hdr->height <= 0 || hdr->comment_len < 0)
     {
-      fclose(filename);
+      fclose(fptr);
       free(hdr);
       return NULL;
     }
@@ -209,7 +209,7 @@ struct Image * loadImage(const char* filename)
 
   if(img->comment == NULL && hdr->comment_len > 0)
     {
-      fclose(filename);
+      fclose(fptr);
       free(img->data);
       free(img->comment);
       free(img);
@@ -221,7 +221,7 @@ struct Image * loadImage(const char* filename)
   
   if(retval != hdr->comment_len)
     {
-      fclose(filename);
+      fclose(fptr);
       free(img->data);
       free(img->comment);
       free(img);
@@ -233,7 +233,7 @@ struct Image * loadImage(const char* filename)
   
   if(retval != hdr->width * hdr->height)
     {
-      fclose(filename);
+      fclose(fptr);
       free(img->data);
       free(img->comment);
       free(img);
@@ -245,7 +245,7 @@ struct Image * loadImage(const char* filename)
 
   if(retval == 1)
     {
-      fclose(filename);
+      fclose(fptr);
       free(img->data);
       free(img->comment);
       free(img);
@@ -253,6 +253,7 @@ struct Image * loadImage(const char* filename)
       return NULL;
     }
   
+  fclose(fptr);
   free(hdr);
   return img;
 }
@@ -305,7 +306,7 @@ void linearNormalization(struct Image * image)
   int min = 255;                              //initialize at 255 so first value must be smaller than it
   int max = 0;                                //initialize at 0 so first value must be larger than it
   int length = image->width * image->height;
-  uint8_t pixel = image->data;
+  uint8_t * pixel = image->data;
 
   for(i = 0;i < length;i++)
     {
