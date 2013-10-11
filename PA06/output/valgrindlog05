@@ -1,66 +1,82 @@
-==998== Memcheck, a memory error detector
-==998== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
-==998== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
-==998== Command: ./pa06 images/05-unnormalized-sagan-stamp.ee264 output/test05
-==998== Parent PID: 986
-==998== 
---998-- 
---998-- Valgrind options:
---998--    --leak-check=full
---998--    --verbose
---998--    --log-file=output/valgrindlog05
---998-- Contents of /proc/version:
---998--   Linux version 2.6.32-358.18.1.el6.x86_64 (mockbuild@x86-003.build.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) ) #1 SMP Fri Aug 2 17:04:38 EDT 2013
---998-- Arch and hwcaps: AMD64, amd64-sse3-cx16
---998-- Page sizes: currently 4096, max supported 4096
---998-- Valgrind library directory: /usr/lib64/valgrind
---998-- Reading syms from /home/shay/a/rnobis/Personal/ECE264/solutions/PA06/pa06
---998-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
---998--    object doesn't have a dynamic symbol table
---998-- Reading syms from /lib64/ld-2.12.so
---998-- Scheduler: using generic scheduler lock implementation.
---998-- Reading suppressions file: /usr/lib64/valgrind/default.supp
-==998== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-998-by-rnobis-on-ecelinux23.ecn.purdue.edu
-==998== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-998-by-rnobis-on-ecelinux23.ecn.purdue.edu
-==998== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-998-by-rnobis-on-ecelinux23.ecn.purdue.edu
-==998== 
-==998== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==998== don't want to do, unless you know exactly what you're doing,
-==998== or are doing some strange experiment):
-==998==   /usr/lib64/valgrind/../../bin/vgdb --pid=998 ...command...
-==998== 
-==998== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==998==   /path/to/gdb ./pa06
-==998== and then give GDB the following command
-==998==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=998
-==998== --pid is optional if only one valgrind process is running
-==998== 
---998-- REDIR: 0x3b8aa17520 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
---998-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
---998-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
---998-- REDIR: 0x3b8aa17390 (index) redirected to 0x4a07bf0 (index)
---998-- REDIR: 0x3b8aa17410 (strcmp) redirected to 0x4a08530 (strcmp)
---998-- Reading syms from /lib64/libc-2.12.so
---998-- REDIR: 0x3b8ae84ec0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
---998-- REDIR: 0x3b8ae87180 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
---998-- REDIR: 0x3b8ae82e30 (__GI_strrchr) redirected to 0x4a07a70 (__GI_strrchr)
---998-- REDIR: 0x3b8ae7f8d0 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
---998-- REDIR: 0x3b8af27ac0 (__strcmp_sse42) redirected to 0x4a08490 (strcmp)
---998-- REDIR: 0x3b8ae7a8e0 (malloc) redirected to 0x4a0696c (malloc)
---998-- REDIR: 0x3b8ae89860 (memcpy) redirected to 0x4a08b20 (memcpy)
---998-- REDIR: 0x3b8ae7b710 (free) redirected to 0x4a06369 (free)
---998-- REDIR: 0x3b8ae8ace0 (strchrnul) redirected to 0x4a09f10 (strchrnul)
---998-- REDIR: 0x3b8ae846f0 (mempcpy) redirected to 0x4a09f80 (mempcpy)
-==998== 
-==998== HEAP SUMMARY:
-==998==     in use at exit: 0 bytes in 0 blocks
-==998==   total heap usage: 7 allocs, 7 frees, 308,549 bytes allocated
-==998== 
-==998== All heap blocks were freed -- no leaks are possible
-==998== 
-==998== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
---998-- 
---998-- used_suppression:      4 U1004-ARM-_dl_relocate_object
---998-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
-==998== 
-==998== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+==8325== Memcheck, a memory error detector
+==8325== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==8325== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==8325== Command: ./pa06 images/05-unnormalized-sagan-stamp.ee264 output/test05
+==8325== Parent PID: 8307
+==8325== 
+--8325-- 
+--8325-- Valgrind options:
+--8325--    --suppressions=/usr/lib/valgrind/debian-libc6-dbg.supp
+--8325--    --leak-check=full
+--8325--    --verbose
+--8325--    --log-file=output/valgrindlog05
+--8325-- Contents of /proc/version:
+--8325--   Linux version 3.8.0-29-generic (buildd@panlong) (gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) ) #42~precise1-Ubuntu SMP Wed Aug 14 16:19:23 UTC 2013
+--8325-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--8325-- Page sizes: currently 4096, max supported 4096
+--8325-- Valgrind library directory: /usr/lib/valgrind
+--8325-- Reading syms from /home/ryan/ECE264/solutions/PA06/pa06 (0x400000)
+--8325-- Reading syms from /lib/x86_64-linux-gnu/ld-2.15.so (0x4000000)
+--8325--   Considering /lib/x86_64-linux-gnu/ld-2.15.so ..
+--8325--   .. CRC mismatch (computed c5d70380 wanted 7d4a76d0)
+--8325--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.15.so ..
+--8325--   .. CRC is valid
+--8325-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux (0x38000000)
+--8325--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--8325--   .. CRC mismatch (computed b9a585cc wanted 749d1a67)
+--8325--    object doesn't have a symbol table
+--8325--    object doesn't have a dynamic symbol table
+--8325-- Reading suppressions file: /usr/lib/valgrind/debian-libc6-dbg.supp
+--8325-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==8325== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-8325-by-ryan-on-???
+==8325== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-8325-by-ryan-on-???
+==8325== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-8325-by-ryan-on-???
+==8325== 
+==8325== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==8325== don't want to do, unless you know exactly what you're doing,
+==8325== or are doing some strange experiment):
+==8325==   /usr/lib/valgrind/../../bin/vgdb --pid=8325 ...command...
+==8325== 
+==8325== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==8325==   /path/to/gdb ./pa06
+==8325== and then give GDB the following command
+==8325==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=8325
+==8325== --pid is optional if only one valgrind process is running
+==8325== 
+--8325-- REDIR: 0x40189e0 (strlen) redirected to 0x380625c7 (???)
+--8325-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so (0x4a25000)
+--8325--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--8325--   .. CRC mismatch (computed c82927cb wanted 1861273b)
+--8325--    object doesn't have a symbol table
+--8325-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so (0x4c27000)
+--8325--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--8325--   .. CRC mismatch (computed 72e29ec9 wanted f3ad49da)
+--8325--    object doesn't have a symbol table
+--8325-- REDIR: 0x4018850 (index) redirected to 0x4c2bc60 (index)
+--8325-- REDIR: 0x40188d0 (strcmp) redirected to 0x4c2cc20 (strcmp)
+--8325-- Reading syms from /lib/x86_64-linux-gnu/libc-2.15.so (0x4e32000)
+--8325--   Considering /lib/x86_64-linux-gnu/libc-2.15.so ..
+--8325--   .. CRC mismatch (computed 0dfc7f92 wanted 306696b6)
+--8325--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.15.so ..
+--8325--   .. CRC is valid
+--8325-- REDIR: 0x4ebe8c0 (strcasecmp) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--8325-- REDIR: 0x4ebac60 (strnlen) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--8325-- REDIR: 0x4ec0b90 (strncasecmp) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--8325-- REDIR: 0x4ebc650 (__GI_strrchr) redirected to 0x4c2ba80 (__GI_strrchr)
+--8325-- REDIR: 0x4eb9040 (strcmp) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--8325-- REDIR: 0x4f62610 (__strcmp_sse42) redirected to 0x4c2cb60 (strcmp)
+--8325-- REDIR: 0x4eb49d0 (malloc) redirected to 0x4c2b660 (malloc)
+--8325-- REDIR: 0x4eb5010 (free) redirected to 0x4c2a7c0 (free)
+--8325-- REDIR: 0x4ec4790 (strchrnul) redirected to 0x4c2e3b0 (strchrnul)
+==8325== 
+==8325== HEAP SUMMARY:
+==8325==     in use at exit: 0 bytes in 0 blocks
+==8325==   total heap usage: 7 allocs, 7 frees, 308,549 bytes allocated
+==8325== 
+==8325== All heap blocks were freed -- no leaks are possible
+==8325== 
+==8325== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+--8325-- 
+--8325-- used_suppression:      2 dl-hack3-cond-1
+==8325== 
+==8325== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)

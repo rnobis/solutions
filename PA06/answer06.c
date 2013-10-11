@@ -180,6 +180,7 @@ struct Image * loadImage(const char* filename)
   
   if(hdr == NULL)
     {
+      free(hdr);
       fclose(fptr);
       return NULL;
     }
@@ -271,9 +272,12 @@ struct Image * loadImage(const char* filename)
  */
 void freeImage(struct Image * image)
 {
-  free(image->data);
-  free(image->comment);
-  free(image);
+  if(image != NULL)
+    {
+      free(image->data);
+      free(image->comment);
+      free(image);
+    }
 }
 
 /*
