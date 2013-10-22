@@ -35,7 +35,12 @@ void List_print(FILE * out, Node * head)
  */
 void List_destroy(Node * head)
 {
-
+  if (head == NULL)
+    {
+      return;
+    }
+  List_destroy(head->next);
+  free(head);
 }
 
 /**
@@ -53,8 +58,12 @@ void List_destroy(Node * head)
  */
 Node * List_create(int value, int index)
 {
+  Node * head = malloc(sizeof(Node));
+  head->value = value;
+  head->index = index;
+  head->next = NULL;
 
-    return NULL;
+  return head;
 }
 
 /**
@@ -85,10 +94,16 @@ Node * List_create(int value, int index)
  */
 Node * List_build(int * value, int * index, int length)
 {
-    return NULL;
+  Node * head = NULL;
+  int i = 0;
+  
+  for(i;i < length;i++)
+    {
+      head = List_insert_ascend(head,value[i],index[i]);
+    }
+  
+  return head;
 }
-
-
 /**
  * Inserting "value" and "index" into the correct location in the 
  * sparse array "head"
@@ -97,7 +112,7 @@ Node * List_build(int * value, int * index, int length)
  * head      A pointer pointing to the first element of the linked list.
  * value     The "value" of the value
  * index     The "value" of the index
- *
+ *node
  * Returns:
  * A sparse array
  *
@@ -110,7 +125,23 @@ Node * List_build(int * value, int * index, int length)
  */
 Node * List_insert_ascend(Node * head, int value, int index)
 {
-    return NULL;
+  if(head == NULL)
+    {
+      return List_create(value,index);
+    }
+  if((head->index) == index)
+    {
+      head->value += value;
+      return head;
+    }
+  if ((head->index) > index)
+    {
+      Node * p = List_create(value,index);
+      p->next = head;
+      return p;
+    }
+  head->next = List_insert_ascend(head->next,value,index);
+  return head;
 }
 
 
@@ -126,9 +157,44 @@ Node * List_insert_ascend(Node * head, int value, int index)
  */
 Node * List_delete(Node * head, int index)
 {
-    return NULL;
-}
+  Node * List_search(Node * head, int index);
+  Node * q = head;
+  Node * p = List_search(head,index);
+  
+  if(q == NULL)
+    {
+      return q;
+    }
+  if(index == 1)
+    {
+      q = q->next;
+      free(head);
+      return q;
+    }
+  while(q->index != index)
+    {
+      q = q->next;
+    }
+  q->next = p->next;
+  free(p);
 
+  return head;
+}
+/**
+ *Function to search for a node specified by index
+ **/
+Node * List_search(Node * head, int index)
+{
+  if(head == NULL)
+    {
+      return NULL;
+    }
+  if ((head->index) == index)
+    {
+      return head;
+    }
+  return List_search(head->next, index);
+}
 /**
  * Copy a list
  *
@@ -138,8 +204,7 @@ Node * List_delete(Node * head, int index)
  * Returns:
  * A copy sparse array
  *
- * This function will copy the sparse array that is passed to it. The
- * copy will be made into new memory. 
+ * This function will copy the sparse array that is passed to it. The * copy will be made into new memory. 
  *
  * This is useful, for example, when we want to merge
  * two linked lists together. We can make a copy of one of the linked
@@ -148,10 +213,35 @@ Node * List_delete(Node * head, int index)
  */
 Node * List_copy(Node * head)
 {
-    return NULL;
+  Node * p = head;   //maintains pointer to top of the list passed in
+  int counter = 0;   //counter to see how many nodes are on the list
+  int * value;       //array for the values of the list
+  int * index;       //array for the indexes of the list
+  int i = 0;         //variable to fill in array values from list to be copied
+
+  while(head != NULL)
+    {
+      counter++;
+      head = head->next;
+    }
+  value = malloc(sizeof(int) * counter);
+  index = malloc(sizeof(int) * counter);
+  
+  while(p != NULL)
+    {
+      value[i] = p->value;
+      index[i] = p->index;
+      i++;
+      p = p->next;
+    }
+  
+  Node * q = List_build(value,index,counter);
+  
+  free(value);
+  free(index);
+
+  return q;
 }
-
-
 /**
  * Merged two linked list together
  * 
@@ -174,6 +264,24 @@ Node * List_copy(Node * head)
  */
 Node * List_merge(Node * head1, Node * head2)
 {
-    return NULL;
+  Node * head3 = List_copy(head1); //copy of list1
+  
+  
+  while (head2 != NULL)
+    {
+      head3 = List_insert_ascend(head3,head2->value,head2->index);
+      head2 = head2->next;
+    }
+  Node * copy1 = head3; //maintains pointer to top of list while deleting zero values
+
+  while (head3 != NULL)
+    {
+      if(head3->value == 0)
+	{
+	  copy1 = List_delete(head3,head3->index);
+	}
+      head3 = head3->next;
+    }
+  return copy1;      
 }
 

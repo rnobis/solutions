@@ -1,0 +1,82 @@
+==4356== Memcheck, a memory error detector
+==4356== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==4356== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==4356== Command: ./pa07 inputs/input0_A inputs/input0_B
+==4356== Parent PID: 4346
+==4356== 
+--4356-- 
+--4356-- Valgrind options:
+--4356--    --suppressions=/usr/lib/valgrind/debian-libc6-dbg.supp
+--4356--    --leak-check=full
+--4356--    --verbose
+--4356--    --log-file=outputs/valgrindlog01
+--4356-- Contents of /proc/version:
+--4356--   Linux version 3.8.0-29-generic (buildd@panlong) (gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) ) #42~precise1-Ubuntu SMP Wed Aug 14 16:19:23 UTC 2013
+--4356-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--4356-- Page sizes: currently 4096, max supported 4096
+--4356-- Valgrind library directory: /usr/lib/valgrind
+--4356-- Reading syms from /home/ryan/ECE264/solutions/PA07/pa07 (0x400000)
+--4356-- Reading syms from /lib/x86_64-linux-gnu/ld-2.15.so (0x4000000)
+--4356--   Considering /lib/x86_64-linux-gnu/ld-2.15.so ..
+--4356--   .. CRC mismatch (computed c5d70380 wanted 7d4a76d0)
+--4356--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.15.so ..
+--4356--   .. CRC is valid
+--4356-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux (0x38000000)
+--4356--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--4356--   .. CRC mismatch (computed b9a585cc wanted 749d1a67)
+--4356--    object doesn't have a symbol table
+--4356--    object doesn't have a dynamic symbol table
+--4356-- Reading suppressions file: /usr/lib/valgrind/debian-libc6-dbg.supp
+--4356-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==4356== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-4356-by-ryan-on-???
+==4356== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-4356-by-ryan-on-???
+==4356== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-4356-by-ryan-on-???
+==4356== 
+==4356== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==4356== don't want to do, unless you know exactly what you're doing,
+==4356== or are doing some strange experiment):
+==4356==   /usr/lib/valgrind/../../bin/vgdb --pid=4356 ...command...
+==4356== 
+==4356== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==4356==   /path/to/gdb ./pa07
+==4356== and then give GDB the following command
+==4356==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=4356
+==4356== --pid is optional if only one valgrind process is running
+==4356== 
+--4356-- REDIR: 0x40189e0 (strlen) redirected to 0x380625c7 (???)
+--4356-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so (0x4a25000)
+--4356--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--4356--   .. CRC mismatch (computed c82927cb wanted 1861273b)
+--4356--    object doesn't have a symbol table
+--4356-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so (0x4c27000)
+--4356--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--4356--   .. CRC mismatch (computed 72e29ec9 wanted f3ad49da)
+--4356--    object doesn't have a symbol table
+--4356-- REDIR: 0x4018850 (index) redirected to 0x4c2bc60 (index)
+--4356-- REDIR: 0x40188d0 (strcmp) redirected to 0x4c2cc20 (strcmp)
+--4356-- Reading syms from /lib/x86_64-linux-gnu/libc-2.15.so (0x4e32000)
+--4356--   Considering /lib/x86_64-linux-gnu/libc-2.15.so ..
+--4356--   .. CRC mismatch (computed 0dfc7f92 wanted 306696b6)
+--4356--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.15.so ..
+--4356--   .. CRC is valid
+--4356-- REDIR: 0x4ebe8c0 (strcasecmp) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--4356-- REDIR: 0x4ebac60 (strnlen) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--4356-- REDIR: 0x4ec0b90 (strncasecmp) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--4356-- REDIR: 0x4ebc650 (__GI_strrchr) redirected to 0x4c2ba80 (__GI_strrchr)
+--4356-- REDIR: 0x4eb49d0 (malloc) redirected to 0x4c2b660 (malloc)
+--4356-- REDIR: 0x4eb5110 (realloc) redirected to 0x4c2b730 (realloc)
+--4356-- REDIR: 0x4eb5010 (free) redirected to 0x4c2a7c0 (free)
+--4356-- REDIR: 0x4ebab80 (__GI_strlen) redirected to 0x4c2bfc0 (__GI_strlen)
+--4356-- REDIR: 0x4ec4790 (strchrnul) redirected to 0x4c2e3b0 (strchrnul)
+==4356== 
+==4356== HEAP SUMMARY:
+==4356==     in use at exit: 0 bytes in 0 blocks
+==4356==   total heap usage: 39 allocs, 39 frees, 5,056 bytes allocated
+==4356== 
+==4356== All heap blocks were freed -- no leaks are possible
+==4356== 
+==4356== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+--4356-- 
+--4356-- used_suppression:      2 dl-hack3-cond-1
+==4356== 
+==4356== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
