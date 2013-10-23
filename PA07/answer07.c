@@ -99,7 +99,10 @@ Node * List_build(int * value, int * index, int length)
   
   for(i;i < length;i++)
     {
-      head = List_insert_ascend(head,value[i],index[i]);
+      if(value[i] != 0)
+	{
+	  head = List_insert_ascend(head,value[i],index[i]);
+	}
     }
   
   return head;
@@ -157,43 +160,29 @@ Node * List_insert_ascend(Node * head, int value, int index)
  */
 Node * List_delete(Node * head, int index)
 {
-  Node * List_search(Node * head, int index);
-  Node * q = head;
-  Node * p = List_search(head,index);
-  
-  if(q == NULL)
+  Node * p = head;
+  if (p == NULL)
     {
-      return q;
+      return p;
     }
-  if(index == 1)
+  if ((p->index) == index)
     {
-      q = q->next;
+      p = p->next;
       free(head);
-      return q;
+      return p;
     }
-  while(q->index != index)
+  Node * q = p -> next;
+  while ((q != NULL) && ((q -> index) != index))
     {
+      p = p->next;
       q = q->next;
     }
-  q->next = p->next;
-  free(p);
-
+  if (q != NULL)
+    {
+      p->next = q->next;
+      free(q);
+    }
   return head;
-}
-/**
- *Function to search for a node specified by index
- **/
-Node * List_search(Node * head, int index)
-{
-  if(head == NULL)
-    {
-      return NULL;
-    }
-  if ((head->index) == index)
-    {
-      return head;
-    }
-  return List_search(head->next, index);
 }
 /**
  * Copy a list
@@ -265,23 +254,35 @@ Node * List_copy(Node * head)
 Node * List_merge(Node * head1, Node * head2)
 {
   Node * head3 = List_copy(head1); //copy of list1
-  
-  
+   
   while (head2 != NULL)
     {
       head3 = List_insert_ascend(head3,head2->value,head2->index);
       head2 = head2->next;
     }
-  Node * copy1 = head3; //maintains pointer to top of list while deleting zero values
-
-  while (head3 != NULL)
+  Node * copy = head3; //maintains pointer to top of list while deleting zero values
+  Node * copy2 = head3;
+  
+  while(head3 != NULL)
     {
       if(head3->value == 0)
 	{
-	  copy1 = List_delete(head3,head3->index);
+	  if(head3 == copy)
+	    {
+	      copy2 = head3->next;
+	    }
+	  head3 = List_delete(head3,head3->index);
 	}
+	  
       head3 = head3->next;
     }
-  return copy1;      
+  if(head3 == NULL)
+    {
+      return copy2;    
+    }
+  else
+    {
+      return head3;
+    }
 }
 
