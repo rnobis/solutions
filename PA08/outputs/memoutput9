@@ -1,0 +1,82 @@
+==29254== Memcheck, a memory error detector
+==29254== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==29254== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==29254== Command: ./pa08 inputs/input9 outputs/output9
+==29254== Parent PID: 29253
+==29254== 
+--29254-- 
+--29254-- Valgrind options:
+--29254--    --suppressions=/usr/lib/valgrind/debian-libc6-dbg.supp
+--29254--    --tool=memcheck
+--29254--    --leak-check=full
+--29254--    --verbose
+--29254--    --log-file=outputs/memoutput9
+--29254-- Contents of /proc/version:
+--29254--   Linux version 3.8.0-29-generic (buildd@panlong) (gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) ) #42~precise1-Ubuntu SMP Wed Aug 14 16:19:23 UTC 2013
+--29254-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--29254-- Page sizes: currently 4096, max supported 4096
+--29254-- Valgrind library directory: /usr/lib/valgrind
+--29254-- Reading syms from /home/ryan/ECE264/solutions/PA08/pa08 (0x400000)
+--29254-- Reading syms from /lib/x86_64-linux-gnu/ld-2.15.so (0x4000000)
+--29254--   Considering /lib/x86_64-linux-gnu/ld-2.15.so ..
+--29254--   .. CRC mismatch (computed 20469de9 wanted af909ff1)
+--29254--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.15.so ..
+--29254--   .. CRC is valid
+--29254-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux (0x38000000)
+--29254--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--29254--   .. CRC mismatch (computed fd32bc40 wanted 1b1bde8c)
+--29254--    object doesn't have a symbol table
+--29254--    object doesn't have a dynamic symbol table
+--29254-- Reading suppressions file: /usr/lib/valgrind/debian-libc6-dbg.supp
+--29254-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==29254== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-29254-by-ryan-on-???
+==29254== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-29254-by-ryan-on-???
+==29254== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-29254-by-ryan-on-???
+==29254== 
+==29254== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==29254== don't want to do, unless you know exactly what you're doing,
+==29254== or are doing some strange experiment):
+==29254==   /usr/lib/valgrind/../../bin/vgdb --pid=29254 ...command...
+==29254== 
+==29254== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==29254==   /path/to/gdb ./pa08
+==29254== and then give GDB the following command
+==29254==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=29254
+==29254== --pid is optional if only one valgrind process is running
+==29254== 
+--29254-- REDIR: 0x40189f0 (strlen) redirected to 0x380625c7 (???)
+--29254-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so (0x4a25000)
+--29254--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--29254--   .. CRC mismatch (computed 8f05ac98 wanted c6d0ab1a)
+--29254--    object doesn't have a symbol table
+--29254-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so (0x4c27000)
+--29254--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--29254--   .. CRC mismatch (computed fc059af4 wanted ffc668e8)
+--29254--    object doesn't have a symbol table
+--29254-- REDIR: 0x4018860 (index) redirected to 0x4c2bc60 (index)
+--29254-- REDIR: 0x40188e0 (strcmp) redirected to 0x4c2cc20 (strcmp)
+--29254-- Reading syms from /lib/x86_64-linux-gnu/libc-2.15.so (0x4e32000)
+--29254--   Considering /lib/x86_64-linux-gnu/libc-2.15.so ..
+--29254--   .. CRC mismatch (computed 2e9c874c wanted 728bfc8e)
+--29254--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.15.so ..
+--29254--   .. CRC is valid
+--29254-- REDIR: 0x4ebee40 (strcasecmp) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--29254-- REDIR: 0x4ebb1e0 (strnlen) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--29254-- REDIR: 0x4ec1110 (strncasecmp) redirected to 0x4a25610 (_vgnU_ifunc_wrapper)
+--29254-- REDIR: 0x4ebcbd0 (__GI_strrchr) redirected to 0x4c2ba80 (__GI_strrchr)
+--29254-- REDIR: 0x4eb4f20 (malloc) redirected to 0x4c2b660 (malloc)
+--29254-- REDIR: 0x4ec4d10 (strchrnul) redirected to 0x4c2e3b0 (strchrnul)
+--29254-- REDIR: 0x4eb5530 (free) redirected to 0x4c2a7c0 (free)
+--29254-- REDIR: 0x4ebb100 (__GI_strlen) redirected to 0x4c2bfc0 (__GI_strlen)
+==29254== 
+==29254== HEAP SUMMARY:
+==29254==     in use at exit: 0 bytes in 0 blocks
+==29254==   total heap usage: 5,122 allocs, 5,122 frees, 146,592 bytes allocated
+==29254== 
+==29254== All heap blocks were freed -- no leaks are possible
+==29254== 
+==29254== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+--29254-- 
+--29254-- used_suppression:      2 dl-hack3-cond-1
+==29254== 
+==29254== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
