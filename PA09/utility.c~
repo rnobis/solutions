@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "pa09.h"
+
+Stack * Stack_push(Stack * st, HuffNode * h)
+{
+  Stack * topnode = malloc(sizeof(Stack));
+  topnode -> node = h;
+  topnode -> next = st;
+  return topnode;
+}
+
+Stack * Stack_pop(Stack * st)
+{
+  if (st == NULL)
+    {
+      return NULL;
+    }
+  Stack * b = st -> next;
+  free(st);
+  return b;
+}
+Stack * Stack_create(HuffNode * h)
+{
+  Stack * st;
+  st = malloc(sizeof(Stack));
+  st -> node = h;
+  st -> next = NULL;
+  return st;
+}
+HuffNode * HuffNode_create(int val)
+{
+  HuffNode * h = malloc(sizeof(HuffNode));
+  h -> value = val;
+  h -> left = NULL;
+  h -> right = NULL;
+  return h;
+}
